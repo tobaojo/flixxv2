@@ -32,9 +32,14 @@ export async function getAuthorization() {
 //   return data;
 // }
 
+// get movies
 export const url = `https://api.themoviedb.org/3/movie/popular`;
 
+// get images
 export const baseImageURL = `https://api.themoviedb.org/3/configuration`;
+
+// get movie
+export const movieUrl = `https://api.themoviedb.org/3/movie/`;
 
 export const options = {
   method: "GET",
