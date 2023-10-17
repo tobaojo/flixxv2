@@ -6,17 +6,35 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Movie from "./components/Movie/Movie";
 import { loader as movieLoader } from "./components/Movie/Movie";
 import { loader as moviesLoader } from "./App";
+import { loader as showsLoader } from "./components/TV-shows/Shows";
+import { loader as showLoader } from "./components/Show/Show";
+import ErrorPage from "./components/errorPage/Error";
+import Shows from "./components/TV-shows/Shows";
+import Show from "./components/Show/Show";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     loader: moviesLoader,
   },
   {
     path: "/movie/:movieId",
     element: <Movie />,
+    errorElement: <ErrorPage />,
     loader: movieLoader,
+  },
+  {
+    path: "/shows",
+    element: <Shows />,
+    errorElement: <ErrorPage />,
+    loader: showsLoader,
+  },
+  {
+    path: "/show/:showId",
+    element: <Show />,
+    loader: showLoader,
   },
 ]);
 

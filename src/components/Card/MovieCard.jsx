@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
-import "./MovieItem.css";
+import "./Card.css";
 
-const MovieItem = ({ baseUrl, movie }) => {
+const MovieCard = ({ baseUrl, movie }) => {
   const width = "w500";
   return (
     <div className="card">
@@ -15,7 +15,7 @@ const MovieItem = ({ baseUrl, movie }) => {
         />
       </Link>
       <div className="card-body">
-        <h5 className="card-title">{movie.title}</h5>
+        <h5 className="card-title">{movie.title || movie.name}</h5>
         <p className="card-text">
           <small className="text-muted">Release: {movie.release_date}</small>
         </p>
@@ -24,4 +24,4 @@ const MovieItem = ({ baseUrl, movie }) => {
   );
 };
 
-export default MovieItem;
+export default MovieCard;

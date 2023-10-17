@@ -1,5 +1,5 @@
 import React from "react";
-import MovieItem from "../MovieItem/MovieItem";
+import MovieCard from "../Card/MovieCard";
 import "./Movies.css";
 
 const Movies = ({ title, movies, baseUrl }) => {
@@ -8,7 +8,7 @@ const Movies = ({ title, movies, baseUrl }) => {
       <h2>{title}</h2>
       <div id={title} className="grid">
         {movies.map((movie) => (
-          <MovieItem key={movie.id} movie={movie} baseUrl={baseUrl} />
+          <MovieCard key={movie.id} movie={movie} baseUrl={baseUrl} />
         ))}
       </div>
     </div>
