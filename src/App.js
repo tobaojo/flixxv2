@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import { baseImageURL, url, options } from "./js/data";
+import { baseImageURL, options, popularMoviesURL, getData } from "./js/data";
 import Movies from "./components/Movies/Movies";
 import Footer from "./components/Footer/Footer";
 
+export async function loader() {
+  const movies = await getData(popularMoviesURL, options);
+  const image = await getData(baseImageURL, options);
+
+  return {
+    imageUrl: image.images.base_url,
+    movies: movies,
+  };
+}
+
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [baseUrl, setBaseUrl] = useState("");
-
-  useEffect(() => {
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => setMovies(data.results));
-
-    fetch(baseImageURL, options)
-      .then((res) => res.json())
-      .then((data) => setBaseUrl(data.images.base_url));
-  }, []);
-  console.log(movies);
+  const { movies } = useLoaderData();
+  const { imageUrl } = useLoaderData();
+  const { results } = movies;
   return (
     <div>
       <Navbar />
-      <Movies movies={movies} title={"Popular Movies"} baseUrl={baseUrl} />
+      <Movies movies={results} title={"Popular Movies"} baseUrl={imageUrl} />
       <Footer />
     </div>
   );
