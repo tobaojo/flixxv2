@@ -29,6 +29,11 @@ export const popularShowsURL = `https://api.themoviedb.org/3/tv/top_rated`;
 // get TV Show
 export const showUrl = "https://api.themoviedb.org/3/tv/";
 
+// search Movie
+export const searchMovieUrl = `https://api.themoviedb.org/3/search/movie?query=`;
+
+export const searchTVUrl = `https://api.themoviedb.org/3/search/tv?query=`;
+
 export const options = {
   method: "GET",
   headers: {

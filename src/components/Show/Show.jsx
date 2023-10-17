@@ -9,14 +9,12 @@ export async function loader({ params }) {
   const completeShowUrl = showUrl + showId;
   const show = await getData(completeShowUrl, options);
   const image = await getData(baseImageURL, options);
-  console.log({ show, image: image.images.base_url });
   return { show, image: image.images.base_url };
 }
 
 const Show = () => {
   const { show, image } = useLoaderData();
   const width = "w500";
-  console.log(image);
   return (
     <>
       <Navbar />

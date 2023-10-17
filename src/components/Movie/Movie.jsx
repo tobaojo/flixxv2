@@ -6,7 +6,6 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
 export async function loader({ params }) {
-  console.log(params);
   const { movieId } = params;
   const completeMovieUrl = movieUrl + movieId;
   const movie = await getData(completeMovieUrl, options);
