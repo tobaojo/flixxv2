@@ -5,7 +5,6 @@ import "./Card.css";
 
 const MovieCard = ({ baseUrl, movie }) => {
   const width = "w500";
-  console.log(movie);
   return (
     <div className="card">
       <Link to={`/movie/${movie.id}`}>

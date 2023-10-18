@@ -14,6 +14,7 @@ import Movies from "./components/Movies/Movies";
 import Footer from "./components/Footer/Footer";
 import Search from "./components/Search/Search";
 import { useEffect } from "react";
+import Pagination from "./components/Pagination/Pagination";
 
 export async function loader({ request }) {
   const movies = await getData(popularMoviesURL, options);
@@ -47,7 +48,7 @@ function App() {
   }, [search]);
 
   return (
-    <div>
+    <>
       <Navbar />
       <Search defaultValue={search} />
       {searchResults.results.length > 0 ? (
@@ -73,9 +74,9 @@ function App() {
       ) : (
         <Movies movies={results} title={"Popular Movies"} baseUrl={imageUrl} />
       )}
-
+      <Pagination />
       <Footer />
-    </div>
+    </>
   );
 }
 

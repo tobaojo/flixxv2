@@ -23,6 +23,8 @@ export const movieUrl = `https://api.themoviedb.org/3/movie/`;
 // get movies
 export const popularMoviesURL = `https://api.themoviedb.org/3/movie/popular`;
 
+export const popularMoviesNextURL = `https://api.themoviedb.org/3/movie/popular?page=`;
+
 // get TV Shows
 export const popularShowsURL = `https://api.themoviedb.org/3/tv/top_rated`;
 

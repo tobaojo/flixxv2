@@ -1,5 +1,6 @@
 import React from "react";
 import { Form } from "react-router-dom";
+import "./Search.css";
 
 const Search = ({ defaultValue }) => {
   return (
@@ -27,7 +28,7 @@ const Search = ({ defaultValue }) => {
               placeholder="Search..."
               defaultValue={defaultValue}
             />
-            <button className="btn" type="submit">
+            <button type="submit">
               <i className="fas fa-search"></i>
             </button>
           </div>

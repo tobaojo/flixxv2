@@ -8,9 +8,11 @@ import { loader as movieLoader } from "./components/Movie/Movie";
 import { loader as moviesLoader } from "./App";
 import { loader as showsLoader } from "./components/TV-shows/Shows";
 import { loader as showLoader } from "./components/Show/Show";
+import { loader as pageLoader } from "./components/Pagination/Pagination";
 import ErrorPage from "./components/errorPage/Error";
 import Shows from "./components/TV-shows/Shows";
 import Show from "./components/Show/Show";
+import Pagination from "./components/Pagination/Pagination";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +36,13 @@ const router = createBrowserRouter([
   {
     path: "/show/:showId",
     element: <Show />,
+    errorElement: <ErrorPage />,
     loader: showLoader,
+  },
+  {
+    path: "/pages/:page",
+    element: <Pagination />,
+    loader: pageLoader,
   },
 ]);
 
