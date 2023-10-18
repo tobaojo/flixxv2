@@ -1,12 +1,12 @@
 import React from "react";
 import { Form } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ defaultValue }) => {
   return (
     <div className="search">
       <div className="container">
         <div id="alert"></div>
-        <Form className="search-form">
+        <Form id="search" className="search-form">
           <div className="search-radio">
             <input
               type="radio"
@@ -25,6 +25,7 @@ const Search = () => {
               name="search"
               id="search-term"
               placeholder="Search..."
+              defaultValue={defaultValue}
             />
             <button className="btn" type="submit">
               <i className="fas fa-search"></i>

@@ -5,11 +5,16 @@ import "./Card.css";
 
 const MovieCard = ({ baseUrl, movie }) => {
   const width = "w500";
+  console.log(movie);
   return (
     <div className="card">
       <Link to={`/movie/${movie.id}`}>
         <img
-          src={`${baseUrl + width + movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `${baseUrl + width + movie.poster_path}`
+              : "https://critics.io/img/movies/poster-placeholder.png"
+          }
           alt=""
           className="card-img-top"
         />

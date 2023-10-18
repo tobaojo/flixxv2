@@ -9,7 +9,11 @@ const ShowCard = ({ baseUrl, show }) => {
     <div className="card">
       <Link to={`/show/${show.id}`}>
         <img
-          src={`${baseUrl + width + show.poster_path}`}
+          src={
+            show.poster_path
+              ? `${baseUrl + width + show.poster_path}`
+              : "https://critics.io/img/movies/poster-placeholder.png"
+          }
           alt=""
           className="card-img-top"
         />

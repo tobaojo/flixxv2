@@ -30,7 +30,14 @@ const Movie = () => {
         <div className="movies-details">
           <div className="details-top">
             <div>
-              <img src={imageUrl + width + movie.poster_path} alt="" />
+              <img
+                src={
+                  movie.poster_path
+                    ? `${imageUrl + width + movie.poster_path}`
+                    : "https://critics.io/img/movies/poster-placeholder.png"
+                }
+                alt=""
+              />
             </div>
             <div>
               <h2>{movie.title}</h2>

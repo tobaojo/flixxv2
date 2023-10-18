@@ -27,7 +27,14 @@ const Show = () => {
         <div className="movies-details">
           <div className="details-top">
             <div>
-              <img src={image + width + show.poster_path} alt="" />
+              <img
+                src={
+                  show.poster_path
+                    ? `${image + width + show.poster_path}`
+                    : "https://critics.io/img/movies/poster-placeholder.png"
+                }
+                alt=""
+              />
             </div>
             <div>
               <h2>{show.name}</h2>
