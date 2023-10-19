@@ -8,13 +8,12 @@ import {
   searchTVUrl,
   getData,
 } from "./js/data";
-import ShowCard from "./components/Card/ShowCard";
-import MovieCard from "./components/Card/MovieCard";
 import Movies from "./components/Movies/Movies";
 import Footer from "./components/Footer/Footer";
 import Search from "./components/Search/Search";
 import { useEffect } from "react";
-import Pagination from "./components/Pagination/Pagination";
+import MovieSearchResults from "./components/Pagination/MovieSearchResults";
+import TVSearchResults from "./components/Pagination/TVSearchResults";
 
 export async function loader({ request }) {
   const movies = await getData(popularMoviesURL, options);
@@ -29,7 +28,6 @@ export async function loader({ request }) {
     type === "movie"
       ? await getData(searchMovieUrl + search, options)
       : await getData(searchTVUrl + search, options);
-  console.log(search);
   return {
     imageUrl: image.images.base_url,
     movies,
@@ -53,28 +51,21 @@ function App() {
       <Search defaultValue={search} />
       {searchResults.results.length > 0 ? (
         type === "movie" ? (
-          <div className="container">
-            <h2>{`${type} Search Results`}</h2>
-            <div id="movies" className="grid">
-              {searchResults.results.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} baseUrl={imageUrl} />
-              ))}
-            </div>
-          </div>
+          <MovieSearchResults
+            searchResults={searchResults}
+            search={search}
+            type={type}
+          />
         ) : (
-          <div className="container">
-            <h2>{`${type} Search Results`}</h2>
-            <div id="shows" className="grid">
-              {searchResults.results.map((show) => (
-                <ShowCard key={show.id} show={show} baseUrl={imageUrl} />
-              ))}
-            </div>
-          </div>
+          <TVSearchResults
+            searchResults={searchResults}
+            search={search}
+            type={type}
+          />
         )
       ) : (
         <Movies movies={results} title={"Popular Movies"} baseUrl={imageUrl} />
       )}
-      <Pagination />
       <Footer />
     </>
   );
