@@ -48,7 +48,7 @@ const MovieSearchResults = ({ searchResults, search, type }) => {
     <>
       <div className="container">
         <h2>{`${type} search results`}</h2>
-        <h2>{`Showing ${searchResults.results.length} of ${searchResults.total_results} for "${search}"`}</h2>
+        <h4>{`Found ${searchResults.total_results} results for "${search}"`}</h4>
         <div id="movies" className="grid">
           {isLoading ? (
             results.results.map((movie) => (
@@ -58,20 +58,22 @@ const MovieSearchResults = ({ searchResults, search, type }) => {
             <></>
           )}
         </div>
+        <p>{`Page ${page} of ${searchResults.total_pages}`}</p>
+        <button
+          className="btn"
+          onClick={handleDecrementClick}
+          disabled={page <= 1 ? true : false}
+        >
+          Prev
+        </button>
+        <button
+          className="btn"
+          onClick={handleIncrementClick}
+          disabled={page >= searchResults.total_pages ? true : false}
+        >
+          Next
+        </button>
       </div>
-      <div>{`Page ${page} of ${searchResults.total_pages}`}</div>
-      <button
-        onClick={handleDecrementClick}
-        disabled={page <= 1 ? true : false}
-      >
-        Prev
-      </button>
-      <button
-        onClick={handleIncrementClick}
-        disabled={page >= searchResults.total_pages ? true : false}
-      >
-        Next
-      </button>
     </>
   );
 };

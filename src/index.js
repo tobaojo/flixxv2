@@ -11,6 +11,7 @@ import { loader as showLoader } from "./components/Show/Show";
 import ErrorPage from "./components/errorPage/Error";
 import Shows from "./components/TV-shows/Shows";
 import Show from "./components/Show/Show";
+import About from "./components/About/About";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
     element: <Show />,
     errorElement: <ErrorPage />,
     loader: showLoader,
+  },
+  {
+    path: "/about",
+    errorElement: <ErrorPage />,
+    element: <About />,
   },
 ]);
 

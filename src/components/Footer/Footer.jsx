@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="main-footer">
       <div className="container">
         <div className="logo">
-          <span>FLIXX</span>
+          <span>FLIXX &copy; 2023</span>
         </div>
         <div className="social-links">
           <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
