@@ -15,7 +15,7 @@ const Navbar = ({ active }) => {
         <li className={`link-item ${active}`}>
           <Link to="/shows">TV Shows</Link>
         </li>
-        <li className="link-item">
+        <li className={`link-item ${active}`}>
           <Link to="/about">About</Link>
         </li>
       </ul>

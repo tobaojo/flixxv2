@@ -14,6 +14,7 @@ import Search from "./components/Search/Search";
 import { useEffect } from "react";
 import MovieSearchResults from "./components/Pagination/MovieSearchResults";
 import TVSearchResults from "./components/Pagination/TVSearchResults";
+import SwiperContent from "./components/Swiper/Swiper";
 
 export async function loader({ request }) {
   const movies = await getData(popularMoviesURL, options);
@@ -48,6 +49,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <SwiperContent movies={results} baseUrl={imageUrl} />
       <Search defaultValue={search} />
       {searchResults.results.length > 0 ? (
         type === "movie" ? (
