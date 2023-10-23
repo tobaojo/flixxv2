@@ -4,6 +4,7 @@ import {
   baseImageURL,
   options,
   popularMoviesURL,
+  upcomingMoviesUrl,
   searchMovieUrl,
   searchTVUrl,
   getData,
@@ -18,6 +19,7 @@ import SwiperContent from "./components/Swiper/Swiper";
 
 export async function loader({ request }) {
   const movies = await getData(popularMoviesURL, options);
+  const upcomingMovies = await getData(upcomingMoviesUrl, options);
   const image = await getData(baseImageURL, options);
   const url = new URL(request.url);
   const search =
@@ -35,12 +37,15 @@ export async function loader({ request }) {
     searchResults,
     type,
     search,
+    upcomingMovies,
   };
 }
 
 function App() {
-  const { movies, imageUrl, searchResults, type, search } = useLoaderData();
+  const { movies, imageUrl, searchResults, type, search, upcomingMovies } =
+    useLoaderData();
   const { results } = movies;
+  console.log(upcomingMovies);
 
   useEffect(() => {
     document.getElementById("search").value = search;
@@ -49,7 +54,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <SwiperContent movies={results} baseUrl={imageUrl} />
+      {searchResults.results.length > 0 ? (
+        <></>
+      ) : (
+        <SwiperContent movies={upcomingMovies.results} baseUrl={imageUrl} />
+      )}
       <Search defaultValue={search} />
       {searchResults.results.length > 0 ? (
         type === "movie" ? (

@@ -35,6 +35,7 @@ export const showUrl = "https://api.themoviedb.org/3/tv/";
 export const searchMovieUrl = `https://api.themoviedb.org/3/search/movie?query=`;
 
 export const searchTVUrl = `https://api.themoviedb.org/3/search/tv?query=`;
+export const upcomingMoviesUrl = `https://api.themoviedb.org/3/movie/upcoming`;
 
 export const options = {
   method: "GET",
