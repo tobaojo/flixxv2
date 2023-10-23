@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 const About = () => {
   return (
     <>
-      <Navbar active={"active"} />
+      <Navbar />
       <div className="container">
         <h3>About this app</h3>
         <h4>Flixx &copy; 2023</h4>

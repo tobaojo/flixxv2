@@ -682,3 +682,7 @@ button.swiper-pagination-bullet {
   backface-visibility: hidden;
   overflow: hidden;
 }
+.now-playing {
+  padding: 60px;
+  background: url("../../images/showcase-bg.jpg");
+}

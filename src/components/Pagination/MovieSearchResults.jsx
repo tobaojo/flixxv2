@@ -16,7 +16,6 @@ const MovieSearchResults = ({ searchResults, search, type }) => {
   const [results, setResults] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const { imageUrl } = useLoaderData();
-  console.log(imageUrl);
 
   function handleIncrementClick() {
     setPage(page + 1);
@@ -31,8 +30,6 @@ const MovieSearchResults = ({ searchResults, search, type }) => {
         searchMovieUrl + search + "&page=" + page,
         options
       );
-
-      console.log(searchMovieUrl + search + "&page=" + page);
       setResults(content);
 
       if (content.results.length > 0) {
@@ -43,7 +40,6 @@ const MovieSearchResults = ({ searchResults, search, type }) => {
     getpageData();
   }, [page, search]);
 
-  console.log(results.results);
   return (
     <>
       <div className="container">

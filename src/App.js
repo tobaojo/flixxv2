@@ -45,7 +45,6 @@ function App() {
   const { movies, imageUrl, searchResults, type, search, upcomingMovies } =
     useLoaderData();
   const { results } = movies;
-  console.log(upcomingMovies);
 
   useEffect(() => {
     document.getElementById("search").value = search;

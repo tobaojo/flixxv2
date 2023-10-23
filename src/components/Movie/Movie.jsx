@@ -3,6 +3,7 @@ import { movieUrl, options, baseImageURL, getData } from "../../js/data";
 import { Link, useLoaderData } from "react-router-dom";
 import "./Movie.css";
 import Navbar from "../Navbar/Navbar";
+import Backdrop from "../Backdrop/Backdrop";
 import Footer from "../Footer/Footer";
 
 export async function loader({ params }) {
@@ -28,6 +29,7 @@ const Movie = () => {
           </Link>
         </div>
         <div className="movies-details">
+          <Backdrop content={movie} baseImageURL={imageUrl} />
           <div className="details-top">
             <div>
               <img

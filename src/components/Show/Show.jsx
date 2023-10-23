@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
+import Backdrop from "../Backdrop/Backdrop";
 import Footer from "../Footer/Footer";
 import { getData, options, showUrl, baseImageURL } from "../../js/data";
 import { useLoaderData, Link } from "react-router-dom";
@@ -25,6 +26,7 @@ const Show = () => {
           </Link>
         </div>
         <div className="movies-details">
+          <Backdrop content={show} baseImageURL={image} />
           <div className="details-top">
             <div>
               <img
